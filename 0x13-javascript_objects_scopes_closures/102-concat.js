@@ -1,7 +1,5 @@
 #!/usr/bin/node
-
 const fs = require('fs');
-
 const fileAPath = process.argv[2];
 const fileBPath = process.argv[3];
 const destinationPath = process.argv[4];

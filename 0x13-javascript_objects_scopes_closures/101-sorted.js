@@ -1,9 +1,5 @@
-// 101-sorted.js
-
 #!/usr/bin/node
-
 const inputDict = require('./101-data').dict;
-
 const outputDict = {};
 
 // iterate over keys of input dictionary
