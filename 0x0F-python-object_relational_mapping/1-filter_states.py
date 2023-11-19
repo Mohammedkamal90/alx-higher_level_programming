@@ -22,13 +22,13 @@ if __name__ == "__main__":
     # Execute SQL query
     cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-    # Fetch all the rows in a list of lists
+    # Fetch all rows in list of lists
     rows = cursor.fetchall()
 
     # Print the results
     for row in rows:
         print(row)
 
-    # Close the cursor and database connection
+    # Close cursor and database connection
     cursor.close()
     db.close()

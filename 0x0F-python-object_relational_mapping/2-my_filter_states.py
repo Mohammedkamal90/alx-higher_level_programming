@@ -18,20 +18,20 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
                          passwd=password, db=db_name, charset="utf8")
 
-    # Create a cursor object using cursor() method
+    # Create cursor object using cursor() method
     cursor = db.cursor()
 
-    # Execute SQL query using format to create the query with user input
+    # Execute SQL query using format to create query with user input
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
     cursor.execute(query, (state_name,))
 
-    # Fetch all the rows in a list of lists
+    # Fetch all the rows in list of lists
     rows = cursor.fetchall()
 
     # Print the results
     for row in rows:
         print(row)
 
-    # Close the cursor and database connection
+    # Close cursor and database connection
     cursor.close()
     db.close()

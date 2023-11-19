@@ -17,10 +17,10 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
 
-    # Create a cursor object to interact with the database
+    # Create cursor object to interact with database
     cursor = db.cursor()
 
-    # Execute SQL query to retrieve states from the states table
+    # Execute SQL query to retrieve states from states table
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
     # Fetch all rows
