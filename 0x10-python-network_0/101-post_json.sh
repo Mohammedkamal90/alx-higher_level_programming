@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Check if both URL and filename are provided as arguments
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Usage: $0 <URL> <filename>"
