@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Check if the URL is provided as an argument
 if [ -z "$1" ]; then
   echo "Usage: $0 <URL>"
