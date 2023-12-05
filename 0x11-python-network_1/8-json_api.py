@@ -3,15 +3,29 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    letter = "" if len(sys.argv) == 1 else sys.argv[1]
-    payload = {"q": letter}
+    if len(sys.argv) < 2:
+        q = ""
+    else:
+        q = sys.argv[1]
 
-    res = requests.post("http://0.0.0.0:5000/search_user", data=payload)
+    url = "http://0.0.0.0:5000/search_user"
+    data = {'q': q}
+
     try:
-        response = res.json()
-        if response == {}:
+        response = requests.post(url, data=data)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as errh:
+        print("HTTP Error:", errh)
+        sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print("Request Error:", err)
+        sys.exit(1)
+
+    try:
+        json_data = response.json()
+        if not json_data:
             print("No result")
         else:
-            print("[{}] {}".format(response.get("id"), response.get("name")))
+            print("[{}] {}".format(json_data.get('id'), json_data.get('name')))
     except ValueError:
         print("Not a valid JSON")
